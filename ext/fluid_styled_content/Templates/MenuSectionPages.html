@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+	<f:if condition="{menu}">
+		<div class="list-group">
+			<f:for each="{menu}" as="page">
+				<a class="list-group-item list-group-item-action list-group-item-primary" href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}">
+					<span>{page.title}</span>
+				</a>
+				<f:if condition="{page.content}">
+					<div class="list-group">
+						<f:for each="{page.content}" as="element">
+							<a class="list-group-item list-group-item-action list-group-item-secondary" href="{page.link}#c{element.data.uid}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{element.data.header}">
+								<span>{element.data.header}</span>
+							</a>
+						</f:for>
+					</div>
+				</f:if>
+			</f:for>
+		</div>
+	</f:if>
+</f:section>
+<f:section name="Card">
+	<f:if condition="{menu}">
+		<div class="list-group-flush">
+			<f:for each="{menu}" as="page">
+				<a class="list-group-item list-group-item-action list-group-item-primary" href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}">
+				<span>{page.title}</span>
+				</a>
+				<f:if condition="{page.content}">
+					<div class="list-group-flush">
+						<f:for each="{page.content}" as="element">
+							<a class="list-group-item list-group-item-action list-group-item-secondary" href="{page.link}#c{element.data.uid}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{element.data.header}">
+							<span>{element.data.header}</span>
+							</a>
+						</f:for>
+					</div>
+				</f:if>
+			</f:for>
+		</div>
+	</f:if>
+</f:section>
+</html>

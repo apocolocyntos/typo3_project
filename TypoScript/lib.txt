@@ -1,0 +1,212 @@
+lib.page_resource_image = IMAGE
+lib.page_resource_image {
+    file {
+        import.data = levelmedia:-1, slide
+        treatIdAsReference = 1
+        import.listNum = 0
+    }
+}
+
+
+
+lib.header < lib.page_resource_image
+
+
+
+lib.menu = HMENU
+lib.menu {
+    entryLevel = 0
+    noBlur = 1
+    1 = TMENU
+    1 {
+        expAll = 1
+
+        NO = 1
+        ACT < .NO
+        CUR < .ACT
+
+        IFSUB = 1
+        ACTIFSUB < .IFSUB
+        CURIFSUB < .IFSUB
+
+    }
+    2 = TMENU
+    2 {
+        NO = 1
+        ACT < .NO
+        CUR < .ACT
+    }
+}
+
+
+
+lib.nav = COA_INT
+lib.nav {
+
+    wrap = <nav class="navbar navbar-expand-sm">|</nav>
+
+    1 = TEXT
+    1.value (
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">V</span>
+        </button>
+    )
+
+    2 < lib.menu
+    2 {
+        1.wrap = <div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav">|</ul></div>
+
+        1 {
+
+            NO.wrapItemAndSub = <li class="nav-item">|</li>
+            NO.ATagParams = class="nav-link"
+            CUR < .NO
+            CUR.wrapItemAndSub = <li class="nav-item active">|</li>
+            CUR.ATagParams = class="nav-link active"
+            ACT < .CUR
+
+            IFSUB.wrapItemAndSub = <li class="nav-item dropdown">|</li>
+            IFSUB.ATagParams = class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            CURIFSUB < .IFSUB
+            CURIFSUB.wrapItemAndSub = <li class="nav-item dropdown active">|</li>
+            ACTIFSUB < .CURIFSUB
+
+        }
+
+
+
+        2.wrap = <div class="dropdown-menu">|</div>
+        2.NO.ATagParams = class="dropdown-item"
+        2.CUR.ATagParams = class="dropdown-item active"
+        2.ACT.ATagParams = class="dropdown-item active"
+
+    }
+
+}
+
+
+
+lib.content = CONTENT
+lib.content {
+    table = tt_content
+    select.orderBy = sorting
+}
+
+
+
+lib.main = CASE
+lib.main {
+
+    key.data = levelfield:-1,backend_layout_next_level,slide
+    key.override.field = backend_layout
+
+    default = TEXT
+    default.value = Inhalt
+
+    pagets__one_row < lib.content
+    pagets__one_row.select.where = colPos=0
+    pagets__one_row.stdWrap.wrap = <div class="">|</div>
+
+    pagets__two_rows = COA_INT
+    pagets__two_rows {
+        1 < lib.content
+        1.select.where = colPos=0
+        1.stdWrap.wrap = <div class="">|</div>
+        2 < lib.content
+        2.select.where = colPos=1
+        2.stdWrap.wrap = <div class="">|</div>
+    }
+
+    pagets__three_rows = COA_INT
+    pagets__three_rows {
+        1 < lib.content
+        1.select.where = colPos=0
+        1.stdWrap.wrap = <div class="">|</div>
+        2 < lib.content
+        2.select.where = colPos=1
+        2.stdWrap.wrap = <div class="">|</div>
+        3 < lib.content
+        3.select.where = colPos=2
+        3.stdWrap.wrap = <div class="">|</div>
+    }
+
+    pagets__four_rows = COA_INT
+    pagets__four_rows {
+        1 < lib.content
+        1.select.where = colPos=0
+        1.stdWrap.wrap = <div class="">|</div>
+        2 < lib.content
+        2.select.where = colPos=1
+        2.stdWrap.wrap = <div class="">|</div>
+        3 < lib.content
+        3.select.where = colPos=2
+        3.stdWrap.wrap = <div class="">|</div>
+        4 < lib.content
+        4.select.where = colPos=3
+        4.stdWrap.wrap = <div class="">|</div>
+
+    }
+
+    pagets__two_cols = COA_INT
+    pagets__two_cols {
+        1 < lib.content
+        1.select.where = colPos=0
+        1.stdWrap.wrap = <div class="col-md">|</div>
+        2 < lib.content
+        2.select.where = colPos=1
+        2.stdWrap.wrap = <div class="col-md">|</div>
+        stdWrap.wrap = <div class="row">|</div>
+    }
+
+    pagets__three_cols = COA_INT
+    pagets__three_cols {
+        1 < lib.content
+        1.select.where = colPos=0
+        1.stdWrap.wrap = <div class="col-md">|</div>
+        2 < lib.content
+        2.select.where = colPos=1
+        2.stdWrap.wrap = <div class="col-md">|</div>
+        3 < lib.content
+        3.select.where = colPos=2
+        3.stdWrap.wrap = <div class="col-md">|</div>
+        stdWrap.wrap = <div class="row">|</div>
+    }
+
+    pagets__two_rows_two_cols = COA_INT
+    pagets__two_rows_two_cols {
+        1 = COA_INT
+        1 {
+            1 < lib.content
+            1.select.where = colPos=0
+            1.stdWrap.wrap = <div class="col-md">|</div>
+            2 < .1
+            2.select.where = colPos=1
+            stdWrap.wrap = <div class="row">|</div>
+        }
+        2 = COA_INT
+        2 {
+            1 < lib.content
+            1.select.where = colPos=2
+            1.stdWrap.wrap = <div class="col-md">|</div>
+            2 < .1
+            2.select.where = colPos=3
+            stdWrap.wrap = <div class="row">|</div>
+        }
+    }
+    stdWrap.wrap = <main>|</main>
+}
+
+
+lib.footer = TEXT
+lib.footer.wrap = <footer>|</footer>
+
+
+
+lib.card.body < lib.parseFunc_RTE
+lib.card.body.nonTypoTagStdWrap.encapsLines.addAttributes.P.class = body-text
+lib.card.body.nonTypoTagStdWrap.encapsLines.addAttributes.H1.class = body-title
+lib.card.body.nonTypoTagStdWrap.encapsLines.addAttributes.H2.class = body-title
+lib.card.body.nonTypoTagStdWrap.encapsLines.addAttributes.H3.class = body-title
+lib.card.body.nonTypoTagStdWrap.encapsLines.addAttributes.H4.class = body-title
+lib.card.body.nonTypoTagStdWrap.encapsLines.addAttributes.H5.class = body-title
+lib.card.body.nonTypoTagStdWrap.encapsLines.addAttributes.H6.class = body-title

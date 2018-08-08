@@ -1,0 +1,8 @@
+config {
+
+    absRefPrefix = /
+    metaCharset = utf-8
+    locale_all = de
+    htmlTag_langKey = de
+
+}

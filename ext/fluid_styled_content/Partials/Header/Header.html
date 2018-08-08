@@ -1,0 +1,114 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{header}">
+	<f:switch expression="{layout}">
+		<f:case value="1">
+			<f:switch expression="{positionClass}">
+				<f:case value="center">
+					<h1 class="d-flex justify-content-center"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h1>
+				</f:case>
+				<f:case value="left">
+					<h1 class="d-flex justify-content-start"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h1>
+				</f:case>
+				<f:case value="right">
+					<h1 class="d-flex justify-content-end"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h1>
+				</f:case>
+				<f:defaultCase>
+					<h1><f:link.typolink parameter="{link}">{header}</f:link.typolink></h1>
+				</f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="2">
+			<f:switch expression="{positionClass}">
+				<f:case value="center">
+					<h2 class="d-flex justify-content-center"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h2>
+				</f:case>
+				<f:case value="left">
+					<h2 class="d-flex justify-content-start"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h2>
+				</f:case>
+				<f:case value="right">
+					<h2 class="d-flex justify-content-end"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h2>
+				</f:case>
+				<f:defaultCase>
+					<h2><f:link.typolink parameter="{link}">{header}</f:link.typolink></h2>
+				</f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="3">
+			<f:switch expression="{positionClass}">
+				<f:case value="center">
+					<h3 class="d-flex justify-content-center"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h3>
+				</f:case>
+				<f:case value="left">
+					<h3 class="d-flex justify-content-start"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h3>
+				</f:case>
+				<f:case value="right">
+					<h3 class="d-flex justify-content-end"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h3>
+				</f:case>
+				<f:defaultCase>
+					<h3><f:link.typolink parameter="{link}">{header}</f:link.typolink></h3>
+				</f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="4">
+			<f:switch expression="{positionClass}">
+				<f:case value="center">
+					<h4 class="d-flex justify-content-center"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h4>
+				</f:case>
+				<f:case value="left">
+					<h4 class="d-flex justify-content-start"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h4>
+				</f:case>
+				<f:case value="right">
+					<h4 class="d-flex justify-content-end"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h4>
+				</f:case>
+				<f:defaultCase>
+					<h4><f:link.typolink parameter="{link}">{header}</f:link.typolink></h4>
+				</f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="5">
+			<f:switch expression="{positionClass}">
+				<f:case value="center">
+					<h5 class="d-flex justify-content-center"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h5>
+				</f:case>
+				<f:case value="left">
+					<h5 class="d-flex justify-content-start"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h5>
+				</f:case>
+				<f:case value="right">
+					<h5 class="d-flex justify-content-end"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h5>
+				</f:case>
+				<f:defaultCase>
+					<h5><f:link.typolink parameter="{link}">{header}</f:link.typolink></h5>
+				</f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="6">
+			<f:switch expression="{positionClass}">
+				<f:case value="center">
+					<h6 class="d-flex justify-content-center"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h6>
+				</f:case>
+				<f:case value="left">
+					<h6 class="d-flex justify-content-start"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h6>
+				</f:case>
+				<f:case value="right">
+					<h6 class="d-flex justify-content-end"><f:link.typolink parameter="{link}">{header}</f:link.typolink></h6>
+				</f:case>
+				<f:defaultCase>
+					<h6><f:link.typolink parameter="{link}">{header}</f:link.typolink></h6>
+				</f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="100">
+			<f:comment> -- do not show header -- </f:comment>
+		</f:case>
+		<f:defaultCase>
+			<f:if condition="{default}">
+				<f:render partial="Header/Header" arguments="{
+					header: header,
+					layout: default,
+					positionClass: positionClass,
+					link: link}" />
+			</f:if>
+		</f:defaultCase>
+	</f:switch>
+</f:if>
+</html>

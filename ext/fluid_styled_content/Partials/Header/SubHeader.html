@@ -1,0 +1,54 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{subheader}">
+	<f:switch expression="{layout}">
+		<f:case value="1">
+			<f:switch expression="{positionClass}">
+				<f:case value="left"><h2 class="d-flex justify-content-start">{subheader}</h2></f:case>
+				<f:case value="center"><h2 class="d-flex justify-content-center">{subheader}</h2></f:case>
+				<f:case value="right"><h2 class="d-flex justify-content-end">{subheader}</h2></f:case>
+				<f:defaultCase><h2>{subheader}</h2></f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="2">
+			<f:switch expression="{positionClass}">
+				<f:case value="left"><h3 class="d-flex justify-content-start">{subheader}</h3></f:case>
+				<f:case value="center"><h3 class="d-flex justify-content-center">{subheader}</h3></f:case>
+				<f:case value="right"><h3 class="d-flex justify-content-end">{subheader}</h3></f:case>
+				<f:defaultCase><h2>{subheader}</h2></f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="3">
+			<f:switch expression="{positionClass}">
+				<f:case value="left"><h4 class="d-flex justify-content-start">{subheader}</h4></f:case>
+				<f:case value="center"><h4 class="d-flex justify-content-center">{subheader}</h4></f:case>
+				<f:case value="right"><h4 class="d-flex justify-content-end">{subheader}</h4></f:case>
+				<f:defaultCase><h2>{subheader}</h2></f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="4">
+			<f:switch expression="{positionClass}">
+				<f:case value="left"><h5 class="d-flex justify-content-start">{subheader}</h5></f:case>
+				<f:case value="center"><h5 class="d-flex justify-content-center">{subheader}</h5></f:case>
+				<f:case value="right"><h5 class="d-flex justify-content-end">{subheader}</h5></f:case>
+				<f:defaultCase><h2>{subheader}</h2></f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:case value="5">
+			<f:switch expression="{positionClass}">
+				<f:case value="left"><h6 class="d-flex justify-content-start">{subheader}</h6></f:case>
+				<f:case value="center"><h6 class="d-flex justify-content-center">{subheader}</h6></f:case>
+				<f:case value="right"><h6 class="d-flex justify-content-end">{subheader}</h6></f:case>
+				<f:defaultCase><h2>{subheader}</h2></f:defaultCase>
+			</f:switch>
+		</f:case>
+		<f:defaultCase>
+			<f:if condition="{default}">
+				<f:render partial="Header/SubHeader" arguments="{
+					subheader: subheader,
+					positionClass: positionClass,
+					layout: default}" />
+			</f:if>
+		</f:defaultCase>
+	</f:switch>
+</f:if>
+</html>

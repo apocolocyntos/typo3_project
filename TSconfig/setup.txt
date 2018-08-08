@@ -1,0 +1,91 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/TSconfig/BackendLayouts.txt">
+
+TCEFORM.pages.layout.altLabels {
+    0 = Standard
+    1 = Layout 1
+    2 = Layout 2
+    3 = Layout 3
+}
+
+TCEFORM.tt_content.header_layout.removeItems = 0
+
+
+TCEFORM.tt_content.layout.altLabels {
+    0 = Standard
+    1 = Card
+    2 = Carousel (images)
+}
+
+TCEFORM.tt_content.bullets_type.altLabels {
+    0 = Standard
+    1 = Flush
+    2 = Irgendwas
+}
+
+TCEFORM.tt_content.frame_class.removeItems = ruler-before, indent, indent-left, indent-right, ruler-after
+TCEFORM.tt_content.frame_class.addItems {
+
+    border = border
+    rounded = rounded
+    border-top = border-top
+    border-bottom = border-bottom
+    border-left = border-left
+    border-right = border-right
+    border-0 = border-0
+    border-left-0 = border-left-0
+    border-right-0 = border-right-0
+    border-top-0 = border-top-0
+    border-bottom-0 = border-bottom-0
+
+
+    pl-0 = pl-0
+    pl-1 = pl-1
+    pl-2 = pl-2
+    pl-3 = pl-3
+    pl-4 = pl-4
+    pl-5 = pl-5
+
+    pr-0 = pr-0
+    pr-1 = pr-1
+    pr-2 = pr-2
+    pr-3 = pr-3
+    pr-4 = pr-4
+    pr-5 = pr-5
+}
+TCEFORM.tt_content.frame_class.altLabels {
+}
+
+#TCEFORM.tt_content.imageorient {
+#    removeItems = 0,1,2,8,9,10,17,18,25,26
+#    addItems {
+#        100 = Default
+#        101 = Top, Left
+#        102 = Top, Center
+#        103 = Top, Right
+#        104 = Center, Left
+#        105 = Center, Center
+#        106 = Center, Right
+#        107 = Bottom, Left
+#        108 = Bottom, Center
+#        109 = Bottom, Right
+#    }
+#    default = 100
+#}
+#TCEFORM.tt_content.imageorient.disabled = 0
+#TCEFORM.tt_content.imageorient.override = 0
+
+TCEFORM.tt_content.space_before_class.altLabels {
+    extra-small = mt-0
+    small = mt-1
+    medium = mt-2
+    large = mt-3
+    extra-large = mt-4
+}
+
+TCEFORM.tt_content.space_after_class.altLabels {
+    extra-small = mb-0
+    small = mb-1
+    medium = mb-2
+    large = mb-3
+    extra-large = mb-4
+}

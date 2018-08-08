@@ -1,0 +1,122 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+	<f:render partial="Media/Gallery" arguments="{_all}" />
+</f:section>
+
+<f:section name="Card">
+	<f:render partial="Media/Gallery" arguments="{_all}" />
+</f:section>
+
+<f:section name="Carousel">
+	<f:if condition="{gallery.rows}">
+		<f:for each="{gallery.rows}" as="row">
+			<div id="carousel-{data.uid}" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<f:for each="{row.columns}" as="column" iteration="iterator">
+						<f:if condition="{iterator.isFirst}">
+							<f:then>
+								<f:if condition="{column.media}">
+									<f:switch expression="{data.imageorient}">
+										<f:case value="0">
+											<div class="carousel-item active{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="1">
+											<div class="carousel-item active{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="2">
+											<div class="carousel-item active{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="8">
+											<div class="carousel-item active{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="9">
+											<div class="carousel-item active{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="10">
+											<div class="carousel-item active{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:defaultCase>
+											<div class="carousel-item active">
+										</f:defaultCase>
+									</f:switch>
+                                    <f:if condition="{column.media.link}">
+                                        <f:then>
+                                            <f:link.typolink parameter="{column.media.link}" title="{column.media.title}">
+                                                <f:media class="img-fluid" file="{column.media}" width="{data.imagewidth}" height="{data.imageheight}" alt="{column.media.alternative}" title="{column.media.title}" />
+                                            </f:link.typolink>
+                                        </f:then>
+                                        <f:else>
+                                            <f:media class="img-fluid" file="{column.media}" width="{data.imagewidth}" height="{data.imageheight}" alt="{column.media.alternative}" title="{column.media.title}" />
+                                        </f:else>
+                                    </f:if>
+                                    <f:if condition="{column.media.description}">
+                                        <div class="carousel-caption">
+                                            {column.media.description}
+                                        </div>
+                                    </f:if>
+                                    </div>
+								</f:if>
+							</f:then>
+							<f:else>
+								<f:if condition="{column.media}">
+									<f:switch expression="{data.imageorient}">
+										<f:case value="0">
+											<div class="carousel-item{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="1">
+											<div class="carousel-item{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="2">
+											<div class="carousel-item{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="8">
+											<div class="carousel-item{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="9">
+											<div class="carousel-item{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:case value="10">
+											<div class="carousel-item{f:if(condition: data.imageborder, then: ' border')}">
+										</f:case>
+										<f:defaultCase>
+											<div class="carousel-item">
+										</f:defaultCase>
+									</f:switch>
+                                    <f:if condition="{column.media.link}">
+                                        <f:then>
+                                            <f:link.typolink parameter="{column.media.link}" title="{column.media.title}">
+                                                <f:media class="img-fluid" file="{column.media}" width="{data.imagewidth}" height="{data.imageheight}" alt="{column.media.alternative}" title="{column.media.title}" />
+                                            </f:link.typolink>
+                                        </f:then>
+                                        <f:else>
+                                            <f:media class="img-fluid" file="{column.media}" width="{data.imagewidth}" height="{data.imageheight}" alt="{column.media.alternative}" title="{column.media.title}" />
+                                        </f:else>
+                                    </f:if>
+                                    <f:if condition="{column.media.description}">
+                                        <div class="carousel-caption">
+                                            {column.media.description}
+                                        </div>
+                                    </f:if>
+                                    </div>
+								</f:if>
+							</f:else>
+						</f:if>
+					</f:for>
+				</div>
+                <a class="carousel-control-prev" href="#carousel-{data.uid}" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-{data.uid}" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+			</div>
+		</f:for>
+	</f:if>
+</f:section>
+
+
+</html>

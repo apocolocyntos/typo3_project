@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{date}">
+
+	<f:switch expression="{positionClass}">
+		<f:case value="left">
+			<p class="d-flex justify-content-start">
+		</f:case>
+		<f:case value="center">
+			<p class="d-flex justify-content-center">
+		</f:case>
+		<f:case value="right">
+			<p class="d-flex justify-content-end">
+		</f:case>
+		<f:defaultCase>
+			<p>
+		</f:defaultCase>
+	</f:switch>
+
+
+		<time datetime="{date -> f:format.date(format: '%Y-%m-%d')}">
+			<f:format.date format="%B %e, %Y">{date}</f:format.date>
+		</time>
+	</p>
+</f:if>
+</html>

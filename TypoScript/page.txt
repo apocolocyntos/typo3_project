@@ -1,0 +1,62 @@
+page = PAGE
+page {
+
+
+
+    typeNum = 0
+
+
+
+    config {
+        doctype = html5
+    }
+
+
+
+    meta {
+
+        viewport = width=device-width, initial-scale=1
+
+        keywords.field = keywords
+        keywords.data = levelfield:-1, keywords, slide
+
+        description.field = description
+
+        author.field = author
+
+        robots = index,follow
+
+    }
+
+
+
+    includeJSLibs {
+        jquery = fileadmin/js/jquery.min.js
+        bootstrap = fileadmin/js/bootstrap.min.js
+    }
+
+
+
+    includeJS {
+
+    }
+
+
+
+    includeCSS {
+        bootstrap = fileadmin/css/bootstrap.min.css
+    }
+
+
+
+    shortcutIcon >
+
+
+    1 < lib.nav
+    2 < lib.main
+    2.stdWrap.wrap = <div class="container-fluid">|</div>
+    3 < lib.footer
+
+
+
+}

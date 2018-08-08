@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<!--f:debug>{data}</f:debug-->
+<f:if condition="{gallery.rows}">
+	<f:for each="{gallery.rows}" as="row">
+		<div class="row">
+			<f:for each="{row.columns}" as="column">
+				<f:if condition="{column.media}">
+					<f:switch expression="{data.imageorient}">
+						<f:case value="0">
+							<div class="col d-flex justify-content-center{f:if(condition: data.imageborder, then: ' border')}">
+						</f:case>
+						<f:case value="1">
+							<div class="col d-flex justify-content-end{f:if(condition: data.imageborder, then: ' border')}">
+						</f:case>
+						<f:case value="2">
+							<div class="col d-flex justify-content-start{f:if(condition: data.imageborder, then: ' border')}">
+						</f:case>
+						<f:case value="8">
+							<div class="col d-flex justify-content-center{f:if(condition: data.imageborder, then: ' border')}">
+						</f:case>
+						<f:case value="9">
+							<div class="col d-flex justify-content-end{f:if(condition: data.imageborder, then: ' border')}">
+						</f:case>
+						<f:case value="10">
+							<div class="col d-flex justify-content-start{f:if(condition: data.imageborder, then: ' border')}">
+						</f:case>
+						<f:defaultCase>
+							<div class="col">
+						</f:defaultCase>
+					</f:switch>
+					<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings, class: 'img-fluid'}" /></div>
+				</f:if>
+			</f:for>
+		</div>
+	</f:for>
+</f:if>
+
+</html>
